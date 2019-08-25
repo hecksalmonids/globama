@@ -1,0 +1,8 @@
+# Ignore workspace files
+.idea
+
+# Ignore database
+db/data.db
+
+# Ignore dev crystals
+app/dev/*.rb
