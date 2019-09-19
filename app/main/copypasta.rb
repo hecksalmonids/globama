@@ -9,6 +9,9 @@ module Bot::Copypasta
 
   extend Convenience
   include Constants
+
+  # #praetorium channel ID
+  PRAETORIUM_ID = 602783928318689291
   
   # Add pasta to database
   command :addpasta,
@@ -48,6 +51,8 @@ module Bot::Copypasta
 
   # Respond to trigger with copypasta
   message do |event|
+    # Skip if trigger is in #praetorium
+    next if event.channel.id == PRAETORIUM_ID
     triggers = Pasta.map(:trigger)
 
     # Skip unless message contains one or more triggers
